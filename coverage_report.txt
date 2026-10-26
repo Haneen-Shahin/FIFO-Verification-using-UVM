@@ -55,31 +55,36 @@ Branch Coverage for instance /FIFO_top/dut/sva
   File FIFO_sva.sv
 ------------------------------------IF Branch------------------------------------
     16                                      2028     Count coming in to IF
-    16              1                         74             if (!f_if.rst_n) begin
+    16              1                         74             if (!f_if.rst_n) begin
+
                                             1954     All False Count
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
     39                                      2028     Count coming in to IF
-    39              1                         88             if (f_if.count == 0) begin
+    39              1                         88             if (f_if.count == 0) begin
+
                                             1940     All False Count
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
     45                                      2028     Count coming in to IF
-    45              1                        753             if (f_if.count == f_if.FIFO_DEPTH) begin
+    45              1                        753             if (f_if.count == f_if.FIFO_DEPTH) begin
+
                                             1275     All False Count
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
     51                                      2028     Count coming in to IF
-    51              1                        629             if (f_if.count == (f_if.FIFO_DEPTH-1)) begin
+    51              1                        629             if (f_if.count == (f_if.FIFO_DEPTH-1)) begin
+
                                             1399     All False Count
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
     57                                      2028     Count coming in to IF
-    57              1                         86             if (f_if.count == 1) begin
+    57              1                         86             if (f_if.count == 1) begin
+
                                             1942     All False Count
 Branch totals: 2 hits of 2 branches = 100.00%
 
@@ -194,18 +199,30 @@ Statement Coverage for instance /FIFO_top/dut/sva --
     Line         Item                      Count     Source 
     ----         ----                      -----     ------ 
   File FIFO_sva.sv
-    2                                                module FIFO_sva(FIFO_if f_if);
-    3                                                 
-    4                                                `ifdef SIM
-    5                                                 
-    6                                                    //==========================================================================
-    7                                                    // Asynchronous (reset) and combinational checks
-    8                                                    // These signals do not wait for a clock edge, so they are checked in an
-    9                                                    // always_comb block with deferred immediate assertions (assert final).
-    10                                                   // assert final evaluates the expression at the final settled value of the
-    11                                                   // time step, after the async reset and the continuous assigns have updated.
-    12                                                   //==========================================================================
-    13              1                       2028         always_comb begin : async_and_comb_checks
+    2                                                module FIFO_sva(FIFO_if f_if);
+
+    3                                                 
+
+    4                                                `ifdef SIM
+
+    5                                                 
+
+    6                                                    //==========================================================================
+
+    7                                                    // Asynchronous (reset) and combinational checks
+
+    8                                                    // These signals do not wait for a clock edge, so they are checked in an
+
+    9                                                    // always_comb block with deferred immediate assertions (assert final).
+
+    10                                                   // assert final evaluates the expression at the final settled value of the
+
+    11                                                   // time step, after the async reset and the continuous assigns have updated.
+
+    12                                                   //==========================================================================
+
+    13              1                       2028         always_comb begin : async_and_comb_checks
+
 
 
 =================================================================================
@@ -227,73 +244,98 @@ NOTE: The modification timestamp for source file 'FIFO.sv' has been altered sinc
   File FIFO.sv
 ------------------------------------IF Branch------------------------------------
     4                                       2338     Count coming in to IF
-    4               1                         74     	if (!f_if.rst_n) begin
-    9               1                        918     	else if (f_if.wr_en && f_if.count < f_if.FIFO_DEPTH) begin
-    15              1                       1346     	else begin 
+    4               1                         74     	if (!f_if.rst_n) begin
+
+    9               1                        918     	else if (f_if.wr_en && f_if.count < f_if.FIFO_DEPTH) begin
+
+    15              1                       1346     	else begin 
+
 Branch totals: 3 hits of 3 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
     17                                      1346     Count coming in to IF
-    17              1                        674     		if (f_if.full && f_if.wr_en) //use " && " (bitwise and) instead of " & "-----------> Warning: this statement is not a bitwise operation 
-    19              1                        672     		else
+    17              1                        674     		if (f_if.full && f_if.wr_en) //use " && " (bitwise and) instead of " & "-----------> Warning: this statement is not a bitwise operation 
+
+    19              1                        672     		else
+
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
     25                                      2338     Count coming in to IF
-    25              1                         74     	if (!f_if.rst_n) begin
-    29              1                        674     	else if (f_if.rd_en && f_if.count != 0) begin
-    34              1                       1590     	else begin
+    25              1                         74     	if (!f_if.rst_n) begin
+
+    29              1                        674     	else if (f_if.rd_en && f_if.count != 0) begin
+
+    34              1                       1590     	else begin
+
 Branch totals: 3 hits of 3 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
     35                                      1590     Count coming in to IF
-    35              1                         13             if (f_if.empty && f_if.rd_en )begin
-    38              1                       1577             else begin
+    35              1                         13             if (f_if.empty && f_if.rd_en )begin
+
+    38              1                       1577             else begin
+
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
     45                                      2338     Count coming in to IF
-    45              1                         74     	if (!f_if.rst_n) begin
-    48              1                       2264     	else begin
+    45              1                         74     	if (!f_if.rst_n) begin
+
+    48              1                       2264     	else begin
+
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
     50                                      2264     Count coming in to IF
-    50              1                        656     		if	( ({f_if.wr_en, f_if.rd_en} == 2'b10) && !f_if.full) 
-    53              1                        198     		else if ( ({f_if.wr_en, f_if.rd_en} == 2'b01) && !f_if.empty)
-    56              1                        485     		else if ({f_if.wr_en, f_if.rd_en} == 2'b11) begin //-------------------------------------->added
+    50              1                        656     		if	( ({f_if.wr_en, f_if.rd_en} == 2'b10) && !f_if.full) 
+
+    53              1                        198     		else if ( ({f_if.wr_en, f_if.rd_en} == 2'b01) && !f_if.empty)
+
+    56              1                        485     		else if ({f_if.wr_en, f_if.rd_en} == 2'b11) begin //-------------------------------------->added
+
                                              925     All False Count
 Branch totals: 4 hits of 4 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
     57                                       485     Count coming in to IF
-    57              1                        223     			if(f_if.full)begin
-    60              1                          9     			else if (f_if.empty) begin
+    57              1                        223     			if(f_if.full)begin
+
+    60              1                          9     			else if (f_if.empty) begin
+
                                              253     All False Count
 Branch totals: 3 hits of 3 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
     67                                      1123     Count coming in to IF
-    67              1                        330     assign f_if.full = (f_if.count == f_if.FIFO_DEPTH)? 1 : 0;
-    67              2                        793     assign f_if.full = (f_if.count == f_if.FIFO_DEPTH)? 1 : 0;
+    67              1                        330     assign f_if.full = (f_if.count == f_if.FIFO_DEPTH)? 1 : 0;
+
+    67              2                        793     assign f_if.full = (f_if.count == f_if.FIFO_DEPTH)? 1 : 0;
+
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
     68                                      1123     Count coming in to IF
-    68              1                         48     assign f_if.empty = (f_if.count == 0)? 1 : 0;
-    68              2                       1075     assign f_if.empty = (f_if.count == 0)? 1 : 0;
+    68              1                         48     assign f_if.empty = (f_if.count == 0)? 1 : 0;
+
+    68              2                       1075     assign f_if.empty = (f_if.count == 0)? 1 : 0;
+
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
     70                                      1123     Count coming in to IF
-    70              1                        400     assign f_if.almostfull = (f_if.count == f_if.FIFO_DEPTH-1)? 1 : 0; //-------------------->fixed from (count == f_if.FIFO_DEPTH-2) to (count == f_if.FIFO_DEPTH-1)
-    70              2                        723     assign f_if.almostfull = (f_if.count == f_if.FIFO_DEPTH-1)? 1 : 0; //-------------------->fixed from (count == f_if.FIFO_DEPTH-2) to (count == f_if.FIFO_DEPTH-1)
+    70              1                        400     assign f_if.almostfull = (f_if.count == f_if.FIFO_DEPTH-1)? 1 : 0; //-------------------->fixed from (count == f_if.FIFO_DEPTH-2) to (count == f_if.FIFO_DEPTH-1)
+
+    70              2                        723     assign f_if.almostfull = (f_if.count == f_if.FIFO_DEPTH-1)? 1 : 0; //-------------------->fixed from (count == f_if.FIFO_DEPTH-2) to (count == f_if.FIFO_DEPTH-1)
+
 Branch totals: 2 hits of 2 branches = 100.00%
 
 ------------------------------------IF Branch------------------------------------
     71                                      1123     Count coming in to IF
-    71              1                         52     assign f_if.almostempty = (f_if.count == 1)? 1 : 0;
-    71              2                       1071     assign f_if.almostempty = (f_if.count == 1)? 1 : 0;
+    71              1                         52     assign f_if.almostempty = (f_if.count == 1)? 1 : 0;
+
+    71              2                       1071     assign f_if.almostempty = (f_if.count == 1)? 1 : 0;
+
 Branch totals: 2 hits of 2 branches = 100.00%
 
 
@@ -492,77 +534,148 @@ NOTE: The modification timestamp for source file 'FIFO.sv' has been altered sinc
     Line         Item                      Count     Source 
     ----         ----                      -----     ------ 
   File FIFO.sv
-    1                                                module FIFO(FIFO_if f_if);
-    2                                                
-    3               1                       2338     always_ff @(posedge f_if.clk or negedge f_if.rst_n) begin
-    4                                                	if (!f_if.rst_n) begin
-    5               1                         74     		f_if.wr_ptr <= 0;
-    6               1                         74     		f_if.wr_ack <= 0; //---------------------------->added 
-    7               1                         74     		f_if.overflow <= 0; //-------------------------->added
-    8                                                	end
-    9                                                	else if (f_if.wr_en && f_if.count < f_if.FIFO_DEPTH) begin
-    10              1                        918     		f_if.mem[f_if.wr_ptr] <= f_if.data_in;
-    11              1                        918     		f_if.wr_ack <= 1;
-    12              1                        918     		f_if.wr_ptr <= f_if.wr_ptr + 1;
-    13              1                        918             f_if.overflow<=0;
-    14                                               	end
-    15                                               	else begin 
-    16              1                       1346     		f_if.wr_ack <= 0; 
-    17                                               		if (f_if.full && f_if.wr_en) //use " && " (bitwise and) instead of " & "-----------> Warning: this statement is not a bitwise operation 
-    18              1                        674     			f_if.overflow <= 1;
-    19                                               		else
-    20              1                        672     			f_if.overflow <= 0;
-    21                                               	end
-    22                                               end
-    23                                               
-    24              1                       2338     always_ff @(posedge f_if.clk or negedge f_if.rst_n) begin
-    25                                               	if (!f_if.rst_n) begin
-    26              1                         74     		f_if.rd_ptr <= 0;
-    27              1                         74     		f_if.underflow<=0; //-------------------------------->fixed (handling sequentially)
-    28                                               	end
-    29                                               	else if (f_if.rd_en && f_if.count != 0) begin
-    30              1                        674     		f_if.data_out <= f_if.mem[f_if.rd_ptr];
-    31              1                        674     		f_if.rd_ptr <= f_if.rd_ptr + 1;
-    32              1                        674             f_if.underflow<=0; //-------------------------------->fixed (handling sequentially)
-    33                                               	end
-    34                                               	else begin
-    35                                                       if (f_if.empty && f_if.rd_en )begin
-    36              1                         13                 f_if.underflow<=1; //-------------------------------->fixed (handling sequentially)
-    37                                                       end
-    38                                                       else begin
-    39              1                       1577                 f_if.underflow<=0; //-------------------------------->fixed (handling sequentially)
-    40                                                       end
-    41                                               	end
-    42                                               end
-    43                                               
-    44              1                       2338     always_ff @(posedge f_if.clk or negedge f_if.rst_n) begin
-    45                                               	if (!f_if.rst_n) begin
-    46              1                         74     		f_if.count <= 0;
-    47                                               	end
-    48                                               	else begin
-    49                                               		//write
-    50                                               		if	( ({f_if.wr_en, f_if.rd_en} == 2'b10) && !f_if.full) 
-    51              1                        656     			f_if.count <= f_if.count + 1;
-    52                                               		//read
-    53                                               		else if ( ({f_if.wr_en, f_if.rd_en} == 2'b01) && !f_if.empty)
-    54              1                        198     			f_if.count <= f_if.count - 1;
-    55                                               		//handling write and read together
-    56                                               		else if ({f_if.wr_en, f_if.rd_en} == 2'b11) begin //-------------------------------------->added
-    57                                               			if(f_if.full)begin
-    58              1                        223     				f_if.count <= f_if.count - 1;
-    59                                               			end
-    60                                               			else if (f_if.empty) begin
-    61              1                          9     				f_if.count <= f_if.count + 1;
-    62                                               			end
-    63                                               		end
-    64                                               	end
-    65                                               end
-    66                                               
-    67              1                       1124     assign f_if.full = (f_if.count == f_if.FIFO_DEPTH)? 1 : 0;
-    68              1                       1124     assign f_if.empty = (f_if.count == 0)? 1 : 0;
-    69                                               //assign underflow = (f_if.empty && f_if.rd_en)? 1 : 0;   //-------------------------------->fixed (handling sequentially)
-    70              1                       1124     assign f_if.almostfull = (f_if.count == f_if.FIFO_DEPTH-1)? 1 : 0; //-------------------->fixed from (count == f_if.FIFO_DEPTH-2) to (count == f_if.FIFO_DEPTH-1)
-    71              1                       1124     assign f_if.almostempty = (f_if.count == 1)? 1 : 0;
+    1                                                module FIFO(FIFO_if f_if);
+
+    2                                                
+
+    3               1                       2338     always_ff @(posedge f_if.clk or negedge f_if.rst_n) begin
+
+    4                                                	if (!f_if.rst_n) begin
+
+    5               1                         74     		f_if.wr_ptr <= 0;
+
+    6               1                         74     		f_if.wr_ack <= 0; //---------------------------->added 
+
+    7               1                         74     		f_if.overflow <= 0; //-------------------------->added
+
+    8                                                	end
+
+    9                                                	else if (f_if.wr_en && f_if.count < f_if.FIFO_DEPTH) begin
+
+    10              1                        918     		f_if.mem[f_if.wr_ptr] <= f_if.data_in;
+
+    11              1                        918     		f_if.wr_ack <= 1;
+
+    12              1                        918     		f_if.wr_ptr <= f_if.wr_ptr + 1;
+
+    13              1                        918             f_if.overflow<=0;
+
+    14                                               	end
+
+    15                                               	else begin 
+
+    16              1                       1346     		f_if.wr_ack <= 0; 
+
+    17                                               		if (f_if.full && f_if.wr_en) //use " && " (bitwise and) instead of " & "-----------> Warning: this statement is not a bitwise operation 
+
+    18              1                        674     			f_if.overflow <= 1;
+
+    19                                               		else
+
+    20              1                        672     			f_if.overflow <= 0;
+
+    21                                               	end
+
+    22                                               end
+
+    23                                               
+
+    24              1                       2338     always_ff @(posedge f_if.clk or negedge f_if.rst_n) begin
+
+    25                                               	if (!f_if.rst_n) begin
+
+    26              1                         74     		f_if.rd_ptr <= 0;
+
+    27              1                         74     		f_if.underflow<=0; //-------------------------------->fixed (handling sequentially)
+
+    28                                               	end
+
+    29                                               	else if (f_if.rd_en && f_if.count != 0) begin
+
+    30              1                        674     		f_if.data_out <= f_if.mem[f_if.rd_ptr];
+
+    31              1                        674     		f_if.rd_ptr <= f_if.rd_ptr + 1;
+
+    32              1                        674             f_if.underflow<=0; //-------------------------------->fixed (handling sequentially)
+
+    33                                               	end
+
+    34                                               	else begin
+
+    35                                                       if (f_if.empty && f_if.rd_en )begin
+
+    36              1                         13                 f_if.underflow<=1; //-------------------------------->fixed (handling sequentially)
+
+    37                                                       end
+
+    38                                                       else begin
+
+    39              1                       1577                 f_if.underflow<=0; //-------------------------------->fixed (handling sequentially)
+
+    40                                                       end
+
+    41                                               	end
+
+    42                                               end
+
+    43                                               
+
+    44              1                       2338     always_ff @(posedge f_if.clk or negedge f_if.rst_n) begin
+
+    45                                               	if (!f_if.rst_n) begin
+
+    46              1                         74     		f_if.count <= 0;
+
+    47                                               	end
+
+    48                                               	else begin
+
+    49                                               		//write
+
+    50                                               		if	( ({f_if.wr_en, f_if.rd_en} == 2'b10) && !f_if.full) 
+
+    51              1                        656     			f_if.count <= f_if.count + 1;
+
+    52                                               		//read
+
+    53                                               		else if ( ({f_if.wr_en, f_if.rd_en} == 2'b01) && !f_if.empty)
+
+    54              1                        198     			f_if.count <= f_if.count - 1;
+
+    55                                               		//handling write and read together
+
+    56                                               		else if ({f_if.wr_en, f_if.rd_en} == 2'b11) begin //-------------------------------------->added
+
+    57                                               			if(f_if.full)begin
+
+    58              1                        223     				f_if.count <= f_if.count - 1;
+
+    59                                               			end
+
+    60                                               			else if (f_if.empty) begin
+
+    61              1                          9     				f_if.count <= f_if.count + 1;
+
+    62                                               			end
+
+    63                                               		end
+
+    64                                               	end
+
+    65                                               end
+
+    66                                               
+
+    67              1                       1124     assign f_if.full = (f_if.count == f_if.FIFO_DEPTH)? 1 : 0;
+
+    68              1                       1124     assign f_if.empty = (f_if.count == 0)? 1 : 0;
+
+    69                                               //assign underflow = (f_if.empty && f_if.rd_en)? 1 : 0;   //-------------------------------->fixed (handling sequentially)
+
+    70              1                       1124     assign f_if.almostfull = (f_if.count == f_if.FIFO_DEPTH-1)? 1 : 0; //-------------------->fixed from (count == f_if.FIFO_DEPTH-2) to (count == f_if.FIFO_DEPTH-1)
+
+    71              1                       1124     assign f_if.almostempty = (f_if.count == 1)? 1 : 0;
+
 
 
 =================================================================================
@@ -581,24 +694,40 @@ Statement Coverage for instance /FIFO_top --
     Line         Item                      Count     Source 
     ----         ----                      -----     ------ 
   File FIFO_top.sv
-    6                                                module FIFO_top();
-    7                                                    bit clk;
-    8                                                    initial begin
-    9               1                          1             clk=0;
-    10              1                          1             forever#5 clk=~clk;
+    6                                                module FIFO_top();
+
+    7                                                    bit clk;
+
+    8                                                    initial begin
+
+    9               1                          1             clk=0;
+
+    10              1                          1             forever#5 clk=~clk;
+
     10              2                       4603     
     10              3                       4602     
-    11                                                   end
-    12                                               
-    13                                                   FIFO_if f_if(clk);
-    14                                                   FIFO dut(f_if);
-    15                                                   
-    16                                                   bind FIFO FIFO_sva sva(f_if);
-    17                                               
-    18                                                   // run test using run_test task
-    19                                                   initial begin
-    20              1                          1             uvm_config_db #(virtual FIFO_if)::set(null,"uvm_test_top","FIFO_if",f_if);
-    21              1                          1             run_test("FIFO_test");
+    11                                                   end
+
+    12                                               
+
+    13                                                   FIFO_if f_if(clk);
+
+    14                                                   FIFO dut(f_if);
+
+    15                                                   
+
+    16                                                   bind FIFO FIFO_sva sva(f_if);
+
+    17                                               
+
+    18                                                   // run test using run_test task
+
+    19                                                   initial begin
+
+    20              1                          1             uvm_config_db #(virtual FIFO_if)::set(null,"uvm_test_top","FIFO_if",f_if);
+
+    21              1                          1             run_test("FIFO_test");
+
 
 Toggle Coverage:
     Enabled Coverage              Bins      Hits    Misses  Coverage
